@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import data from "./data.json";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import SearchByName from "./components/SearchByName";
+import SearchByyear from "./components/SearchByYear";
+import SearchByYearAndCategory from "./components/SearchByYearAndCategory";
+import SearchByAlphabetical from "./components/SearchByAlphabetical";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/name" element={<SearchByName />} />
+        <Route path="/year" element={<SearchByyear />} />
+        <Route path="/yearandcategory" element={<SearchByYearAndCategory />} />
+        <Route path="/alphabeticalorder" element={<SearchByAlphabetical />} />
+      </Routes>
+    </Router>
   );
 }
 
